@@ -1,15 +1,28 @@
-export async function getCountryByName(countryName)
-{
-    const response = await fetch(`/api/v3.1/name/${encodeURIComponent(countryName)}?fullText=true`);
-
-    if(!response.ok)
-    {
-        throw new Error('Failed to fetch country');
-    }
-
-    const data = await response.json();
-    return data;
+export async function getCountryByName(countryName) {
+  const response = await fetch(`https://restcountries.com/v3.1/name/${countryName}`);
+  
+  if (!response.ok) {
+    throw new Error('Country not found');
+  }
+  
+  const data = await response.json();
+  return data;
 }
+
+
+// export async function getCountryByName(countryName)
+// {
+    
+//     const response = await fetch(`https://restcountries.com/v3.1/name/${encodeURIComponent(countryName)}?fullText=true`);
+
+//     if(!response.ok)
+//     {
+//         throw new Error('Failed to fetch country');
+//     }
+
+//     const data = await response.json();
+//     return data;
+// }
 
 
 // export async function fetchCountryByName(countryName) {

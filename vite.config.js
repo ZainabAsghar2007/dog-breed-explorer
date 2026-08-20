@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://restcountries.com', // Yahan restcountries.com aana chahiye
+        target: 'https://restcountries.com', 
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },

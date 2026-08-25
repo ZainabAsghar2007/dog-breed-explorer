@@ -1,123 +1,54 @@
-// import React, { useState } from 'react';
-// import SearchBar from '../components/SearchBar';
-// import { Box, Typography } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, Container, Autocomplete, TextField, Box } from '@mui/material';
 
-// function Home() {
-//   const [searchTerm, setSearchTerm] = useState('');
+export default function Home() {
+  const [breeds, setBreeds] = useState([]);
+  const navigate = useNavigate();
 
-//   const handleSearch = () => {
-//     console.log("Searching for:", searchTerm);
-//   };
-
-//   return (
-//     <Box 
-//       sx={{ 
-//         display: 'flex', 
-//         flexDirection: 'column', 
-//         alignItems: 'center', 
-//         justifyContent: 'center', 
-//         mt: 8, 
-//         textAlign: 'center',
-//         px: 2
-//       }}
-//     >
-//       <Typography variant="h3" component="h1" gutterBottom fontWeight="bold" color="primary">
-//         Travel Explorer
-//       </Typography>
-      
-//       <Typography variant="subtitle1" color="text.secondary" gutterBottom sx={{ mb: 4 }}>
-//         Discover countries, weather, and details across the globe.
-//       </Typography>
-
-//       <Box sx={{ width: '100%', maxWidth: '600px' }}>
-//         <SearchBar 
-//           searchTerm={searchTerm} 
-//           setSearchTerm={setSearchTerm} 
-//           onSearch={handleSearch} 
-//         />
-//       </Box>
-//     </Box>
-//   );
-// }
-
-// export default Home;
-
-
-
-
-import React, { useState } from 'react';
-import SearchBar from '../components/SearchBar';
-import Country from './Country'; 
-import { getCountryByName } from '../services/countriesApi'; 
-import { Box, Typography } from '@mui/material';
-
-function Home() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [countryData, setCountryData] = useState(null); 
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  const handleSearch = async () => {
-    if (!searchTerm.trim()) return;
-
-    try {
-      setLoading(true);
-      setError(null);
-      setCountryData(null);
-
-      
-      const data = await getCountryByName(searchTerm);
-      
-      
-      if (data && data.length > 0) {
-        setCountryData(data[0]);
-      } else {
-        setError('Country not found');
+  useEffect(() => {
+    const fetchBreeds = async () => {
+      try {
+        const res = await fetch('https://dog.ceo/api/breeds/list/all');
+        const data = await res.json();
+        setBreeds(Object.keys(data.message));
+      } catch (err) {
+        console.error("Error fetching breeds:", err);
       }
-    } catch (err) {
-      setError('Something went wrong. Please try again.');
-    } finally {
-      setLoading(false);
+    };
+
+    fetchBreeds();
+  }, []);
+
+  const handleBreedChange = (event, value) => {
+    if (value) {
+      navigate(`/breed/${value}`);
     }
   };
 
   return (
-    <Box 
-      sx={{ 
-        display: 'flex', 
-        flexDirection: 'column', 
-        alignItems: 'center', 
-        justifyContent: 'center', 
-        mt: 8, 
-        textAlign: 'center', 
-        px: 2 
-      }}
-    >
-      <Typography variant="h3" gutterBottom sx={{ fontWeight: 'bold', color: '#3f51b5' }}>
-        Travel Explorer
-      </Typography>
-      <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
-        Discover countries, weather, and details across the globe.
-      </Typography>
+    <Box sx={{ flexGrow: 1, minHeight: '100vh', bgcolor: '#f5f5f5', pb: 4 }}>
+      <AppBar position="static" sx={{ mb: 6, bgcolor: '#1976d2' }}>
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            🐶 Dog Breed Explorer
+          </Typography>
+        </Toolbar>
+      </AppBar>
 
-      
-      <SearchBar 
-        searchTerm={searchTerm} 
-        setSearchTerm={setSearchTerm} 
-        onSearch={handleSearch} 
-      />
-
-      
-      {error && (
-        <Typography color="error" sx={{ mt: 2 }}>
-          {error}
+      <Container maxWidth="sm" sx={{ textAlign: 'center', mt: 8 }}>
+        <Typography variant="h4" sx={{ mb: 3, fontWeight: 'bold', color: '#333' }}>
+          Find Your Favorite Dog Breed
         </Typography>
-      )}
-
-      
-      <Country countryData={countryData} />
+        <Autocomplete
+          options={breeds}
+          onChange={handleBreedChange}
+          renderInput={(params) => (
+            <TextField {...params} label="Search Dog Breed (e.g., hound, retriever)" variant="outlined" />
+          )}
+          sx={{ bgcolor: 'white', borderRadius: 1 }}
+        />
+      </Container>
     </Box>
   );
 }
-
-export default Home;

@@ -26,7 +26,7 @@ export default function BreedGallery() {
 
   return (
     <Box sx={{ flexGrow: 1, minHeight: '100vh', bgcolor: '#f5f5f5', pb: 4 }}>
-      <AppBar position="static" sx={{ mb: 4, bgcolor: '#3da8ea' }}>
+      <AppBar position="static" sx={{ mb: 4, bgcolor: '#1976d2' }}>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, textTransform: 'capitalize' }}>
             🐶 {breedName} Gallery

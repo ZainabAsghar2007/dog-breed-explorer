@@ -29,7 +29,7 @@ Make sure you have **Node.js** installed on your system.
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/ZainabAsghar2007/dog-breed-explorer.git](https://github.com/ZainabAsghar2007/dog-breed-explorer.git)
+   git clone https://github.com/ZainabAsghar2007/dog-breed-explorer.git
 
 Navigate to the project directory:
 

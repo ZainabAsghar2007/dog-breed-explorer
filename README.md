@@ -35,12 +35,13 @@ Make sure you have **Node.js** installed on your system.
 2. **Navigate to the project directory:**
    ```bash
    cd dog-breed-explorer
-Install dependencies:
 
-Bash
-npm install
-Start the development server:
+3. **Install dependencies:**
+   ```bash
+   npm install
 
-Bash
-npm run dev
+4. **Start the development server:**
+   ```bash
+   npm run dev
+   
 Open your browser and navigate to http://localhost:5173 to view the app.

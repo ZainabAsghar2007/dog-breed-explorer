@@ -1,16 +1,45 @@
-# React + Vite
+# 🐶 Dog Breed Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React web application built to explore various dog breeds and view random photo galleries using the public Dog CEO API.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* **Breed Search:** Autocomplete search bar to easily find and select specific dog breeds.
+* **Dynamic Image Gallery:** Dedicated gallery page for each breed showing 10 random high-quality photos.
+* **Responsive Design:** Clean and modern UI built with Material UI (MUI) that looks great on mobile, tablet, and desktop screens.
+* **Loading States:** Smooth user experience with custom loading spinners during API data fetching.
+* **Easy Navigation:** Seamless routing between the home search page and individual breed galleries using React Router.
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **Frontend Library:** React (JavaScript)
+* **UI Framework:** Material UI (MUI)
+* **Routing:** React Router DOM
+* **API:** [Dog CEO API](https://dog.ceo/dog-api/)
+* **Build Tool:** Vite
 
-## Expanding the ESLint configuration
+## 🚀 Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+To run this project locally on your computer, follow these steps:
+
+### Prerequisites
+Make sure you have **Node.js** installed on your system.
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/your-username/dog-breed-explorer.git](https://github.com/your-username/dog-breed-explorer.git)
+Navigate to the project directory:
+
+Bash
+cd dog-breed-explorer
+Install dependencies:
+
+Bash
+npm install
+Start the development server:
+
+Bash
+npm run dev
+Open your browser and navigate to http://localhost:5173 to view the app.

@@ -31,11 +31,11 @@ Make sure you have **Node.js** installed on your system.
    ```bash
    git clone https://github.com/ZainabAsghar2007/dog-breed-explorer.git
 
-   **Navigate to the project directory:**
+
+2. **Navigate to the project directory:**
    ```bash
    cd dog-breed-explorer
-
-   Install dependencies:
+Install dependencies:
 
 Bash
 npm install

@@ -31,19 +31,15 @@ Make sure you have **Node.js** installed on your system.
    ```bash
    git clone https://github.com/ZainabAsghar2007/dog-breed-explorer.git
 
-Navigate to the project directory:
-
-```Bash
-cd dog-breed-explorer
-
+**Navigate to the project directory:**
+   ```bash
+   cd dog-breed-explorer
 Install dependencies:
 
-```Bash
+Bash
 npm install
-
 Start the development server:
 
-```Bash
+Bash
 npm run dev
-
 Open your browser and navigate to http://localhost:5173 to view the app.
